@@ -16,8 +16,8 @@
 	
 	# Define these here, or in _projectCommon.php for site-wide values
 	$pageKeywords	= "eclipse, project";
-	$pageAuthor		= "Your name";
-	$pageTitle 		= "My project home";
+	$pageAuthor		= "Michael Jastram";
+	$pageTitle 		= "Requirements Modeling Framework - RMF";
 	
 	
 	// 	# Paste your HTML content between the EOHTML markers!
