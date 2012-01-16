@@ -1,6 +1,6 @@
-<?php  																														require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); 	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); 	$App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProjectCommon());    # All on the same line to unclutter the user's desktop'
+<?php
 /*******************************************************************************
- * Copyright (c) 2009 
+ * Copyright (c) 2009 Eclipse Foundation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,25 +10,20 @@
  *    
  *******************************************************************************/
 
-	$pageTitle 		= "MyProject - Download";
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); 	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); 	$App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProjectCommon());
+	
+	$localVersion = false;
+	
+	# Define these here, or in _projectCommon.php for site-wide values
+	$pageKeywords	= "eclipse, project";
+	$pageAuthor		= "Lukas Ladenberger";
+	$pageTitle 		= "Requirements Modeling Framework - RMF";
+	
+	
+	// 	# Paste your HTML content between the EOHTML markers!
+	$html = "Coming Soon";
 
-	$html  = <<<EOHTML
-<div id="midcolumn">
-<h2>$pageTitle</h2>
-<p>All downloads are provided under the terms and conditions of the <a href="/legal/epl/notice.php">Eclipse Foundation Software User Agreement</a> unless otherwise specified.</p>
-
-<h3>Indigo - Eclipse 3.7</h3>
-
-The first RMF release is planned for January 2011 - please stay tuned!
-
-<!--
-<p><b>Update site:</b> http://download.eclipse.org/myproject/<br />
-<b>ZIP file: </b><a href="/downloads/download.php?file=/myproject/file.zip">file.zip</a> (10 MiB)</p>
--->
-
-
-</div>
-EOHTML;
 	# Generate the web page
-	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+	$App->generatePage($theme, $Menu, null, $pageAuthor, $pageKeywords, $pageTitle, $html);
+
 ?>
