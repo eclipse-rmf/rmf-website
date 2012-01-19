@@ -20,8 +20,14 @@
 	$pageTitle 		= "Requirements Modeling Framework - RMF";
 	
 	
+	// # Header
+	$html = file_get_contents('pages/_header.html');
+	
 	// 	# Paste your HTML content between the EOHTML markers!
-	$html = file_get_contents('pages/_index.html');
+	$html .= file_get_contents('pages/_index.html');
+	
+	// # Footer
+	$html .= file_get_contents('pages/_footer.html');
 
 	# Generate the web page
 	$App->generatePage($theme, $Menu, null, $pageAuthor, $pageKeywords, $pageTitle, $html);
