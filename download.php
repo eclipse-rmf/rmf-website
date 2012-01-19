@@ -30,6 +30,7 @@
 	$html .= file_get_contents('pages/_footer.html');
 
 	# Generate the web page
+	$App->AddExtraHtmlHeader('<script src="/modeling/includes/downloads.js" type="text/javascript"></script>' . "\n"); //ie doesn't understand self closing script tags, and won't even try to render the page if you use one
 	$App->generatePage($theme, $Menu, null, $pageAuthor, $pageKeywords, $pageTitle, $html);
 
 ?>
