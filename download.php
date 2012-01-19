@@ -26,6 +26,21 @@
 	// 	# Paste your HTML content between the EOHTML markers!
 	$html .= file_get_contents('pages/_download.html');
 	
+	$ordner = "http://download.eclipse.org/rmf/downloads/drops/0.1.0";
+	$handle = opendir($ordner);
+	while ($file = readdir ($handle)) {
+	    if($file != "." && $file != "..") {
+	        if(is_dir($ordner."/".$file)) {
+	            $html .= "/".$file."<br/>";
+	        } else {
+	            // kompletter Pfad
+	            $compl = $ordner."/".$file;
+	            $html .= "<a href=\"".$compl."\">".$file."</a><br/>";
+	        }
+	    }
+	}
+	closedir($handle);
+	
 	// # Footer
 	$html .= file_get_contents('pages/_footer.html');
 
