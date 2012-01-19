@@ -24,7 +24,7 @@
 	$html = file_get_contents('pages/_header.html');
 	
 	// 	# Paste your HTML content between the EOHTML markers!
-	$html .= file_get_contents('pages/_downloads.html');
+	$html .= file_get_contents('pages/_download.html');
 	
 	// # Footer
 	$html .= file_get_contents('pages/_footer.html');
