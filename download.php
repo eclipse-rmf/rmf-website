@@ -82,13 +82,13 @@
 	
 			//Categories
 			while($categories = current($versions)) {
+				krsort($categories);
 				$category = key($versions);
 				$str .= "<h5>".$category."<h5>\n";
 				$str .= "<ul>\n";
 	
 					//Artifactsfolder
 					while($afolders = current($categories)) {
-						krsort($afolders);					
 						$afolder = key($categories);
 						$str .= "<li><a href=\"javascript:toggle('".$afolder."')\">".$afolder."</a>\n";
 						$str .= "<ul id='".$afolder."' style='display:'\>\n";
