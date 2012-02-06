@@ -75,32 +75,38 @@
 		
 		$str = '';
 		
+		//Sort verion numbers
+		krsort($elements);
+		
 		//Versionnumbers
 		while($versions = current($elements)) {
+			
 			$version = key($elements);
 			$str .= "<h4>".$version."<h4>\n";
 	
 			//Categories
 			while($categories = current($versions)) {
+	
 				krsort($categories);
 				$category = key($versions);
 				$str .= "<h5>".$category."<h5>\n";
 				$str .= "<ul>\n";
-	
+					$show = 'none';
+					if($category == 'Snapshot')
+						$show = '';
 					//Artifactsfolder
 					while($afolders = current($categories)) {
 						$afolder = key($categories);
 						$str .= "<li><a href=\"javascript:toggle('".$afolder."')\">".$afolder."</a>\n";
-						$str .= "<ul id='".$afolder."' style='display:'\>\n";
+						$str .= "<ul id='".$afolder."' style='display:".$show."'\>\n";
 						//Artifacts
 						while($artifact = current($afolders)) {
 							$str .= "<li><a href='http://www.eclipse.org/downloads/download.php?file=/rmf/downloads/drops/".$version."/".$afolder."/".$artifact."'><img src='http://www.eclipse.org/modeling/images/dl.gif' style='border:0;' />".$artifact."</a></li>\n";
 							next($afolders);
 						}
-						
 						$str .= "</ul>\n";
 						$str .= "</li>\n";
-						
+						$show = 'none';
 						next($categories);
 					}
 					
