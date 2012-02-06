@@ -88,6 +88,7 @@
 	
 					//Artifactsfolder
 					while($afolders = current($categories)) {
+						krsort($afolders);					
 						$afolder = key($categories);
 						$str .= "<li><a href=\"javascript:toggle('".$afolder."')\">".$afolder."</a>\n";
 						$str .= "<ul id='".$afolder."' style='display:'\>\n";
