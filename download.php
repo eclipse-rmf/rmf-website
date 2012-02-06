@@ -19,12 +19,107 @@
 	$pageAuthor		= "Lukas Ladenberger";
 	$pageTitle 		= "Requirements Modeling Framework - RMF";
 	
+
+	function getArtifacts($folder) {
+		$ar = array();
+		$aDirectory = dir($folder);
+		while ($file = $aDirectory->read()) {
+			if($file != "." && $file != "..") {
+				$po = $folder."/".$file;
+				if(!is_dir($po)) {
+					$ar[] = $file;
+				}
+			}
+		}	
+		return $ar;
+	}
+	
+	function getArtifactsFolder($folder)
+	{
+		$artifacts = array('Snapshot' => array(), 'Nightly' => array(), 'Integration' => array());
+		$aDirectory = dir($folder);
+		while ($file = $aDirectory->read()) {
+			if($file != "." && $file != "..") {
+				$po = $folder."/".$file;
+				if(is_dir($po)) {
+					$prefix = substr($file, 0, 1);
+					if($prefix == 'S') {
+						$artifacts['Snapshot'][$file] = getArtifacts($po);
+					} elseif($prefix == 'N'){
+						$artifacts['Nightly'][$file] = getArtifacts($po);
+					} elseif($prefix == 'I') {
+						$artifacts['Integration'][$file] = getArtifacts($po);
+					}
+				}
+			}
+		}
+		return $artifacts;
+	}
+	
+	function getVersions($folder) {
+		$array = array();
+		$aDirectory = dir($folder);
+			while ($file = $aDirectory->read()) {
+			if($file != "." && $file != "..") {
+				if(is_dir($folder."/".$file)) {
+					$array[$file] = getArtifactsFolder($folder."/".$file);
+				}
+			}
+		}
+		return $array;
+	}
+	
+	function printArtifacts($folder) {
+		
+		$elements = getVersions($folder);
+		
+		$str = '';
+		
+		//Versionnumbers
+		while($versions = current($elements)) {
+			$version = key($elements);
+			$str .= "<h4>".$version."<h4>\n";
+	
+			//Categories
+			while($categories = current($versions)) {
+				$category = key($versions);
+				$str .= "<h5>".$category."<h5>\n";
+				$str .= "<ul>\n";
+	
+					//Artifactsfolder
+					while($afolders = current($categories)) {
+						$afolder = key($categories);
+						$str .= "<li><a href=\"javascript:toggle('".$afolder."')\">".$afolder."</a>\n";
+						$str .= "<ul id='".$afolder."' style='display:'\>\n";
+						//Artifacts
+						while($artifact = current($afolders)) {
+							$str .= "<li><a href='http://www.eclipse.org/downloads/download.php?file=/rmf/downloads/drops/".$version."/".$afolder."/".$artifact."'><img src='http://www.eclipse.org/modeling/images/dl.gif' style='border:0;' />".$artifact."</a></li>\n";
+							next($afolders);
+						}
+						
+						$str .= "</ul>\n";
+						$str .= "</li>\n";
+						
+						next($categories);
+					}
+					
+				$str .= "</ul>\n";
+	
+				next($versions);
+			}
+			
+			next($elements);
+			
+		}
+		return $str;
+	}
 	
 	// # Header
 	$html = file_get_contents('pages/_header.html');
 	
-	// 	# Paste your HTML content between the EOHTML markers!
-	$html .= file_get_contents('pages/_download.html');
+	$folder = $App->getDownloadBasePath()."/rmf/downloads/drops";
+
+	$html .= printArtifacts($folder);
 
 	// # Footer
 	$html .= file_get_contents('pages/_footer.html');
