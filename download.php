@@ -92,7 +92,7 @@
 				$str .= "<h5>".$category."<h5>\n";
 		
 				$str .= "<ul>\n";
-				$str .= "<li>Updatesite: <i>http://download.eclipse.org/rmf/updates/".$category."/".$version."</i></li>\n";
+				$str .= "<li>Updatesite: <i>http://download.eclipse.org/rmf/updates/".strtolower($category)."/".$version."</i></li>\n";
 				$str .= "</ul>\n";
 				
 				$str .= "<ul>\n";
