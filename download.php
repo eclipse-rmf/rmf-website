@@ -103,7 +103,7 @@
 					//Artifactsfolder
 					while($afolders = current($categories)) {
 						$afolder = key($categories);
-						$str .= "<li><a href=\"javascript:toggle('".$afolder."')\">".$afolder." (".IDtoDateStamp($afolder, 0)."</a>\n";
+						$str .= "<li><a href=\"javascript:toggle('".$afolder."')\">".$afolder." (".IDtoDateStamp($afolder, 0).")</a>\n";
 						$str .= "<ul id='".$afolder."' style='display:".$show."'\>\n";
 						//Artifacts
 						while($artifact = current($afolders)) {
