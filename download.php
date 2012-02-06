@@ -90,6 +90,11 @@
 				krsort($categories);
 				$category = key($versions);
 				$str .= "<h5>".$category."<h5>\n";
+		
+				$str .= "<ul>\n";
+				$str .= "<li>Updatesite: <i>http://download.eclipse.org/rmf/updates/".$category."/".$version."</i></li>\n";
+				$str .= "</ul>\n";
+				
 				$str .= "<ul>\n";
 					$show = 'none';
 					if($category == 'Snapshot')
