@@ -28,10 +28,36 @@
 			if($file != "." && $file != "..") {
 				$po = $folder."/".$file;
 				if(!is_dir($po)) {
-					$ar[] = $file;
+					$osar = getOsArtifact($file);
+					$ar[] = array(
+						'Name' => $file,					
+						'Size' => filesize($po),
+						'OS' => $osar['OS'],
+						'Arch' => $osar['Arch']
+						);
 				}
 			}
 		}	
+		$aDirectory->close();
+		return $ar;
+	}
+	
+	function getOsArtifact($artifactname) {
+		$ar = array();
+		$osarray = array(
+			'x.gtk' => 'Linux',
+			'win32' => 'Windows',
+			'cocoa' => 'Mac OS X (Cocoa)'
+		);
+		$str = '';
+		$arch = substr($artifactname,-10,-4);
+		if($arch == 'x86_64') {
+			$ar['OS'] = $osarray[substr($artifactname,-16,-11)];
+			$ar['Arch'] = '64 Bit';
+		} else {
+			$ar['OS'] = $osarray[substr($artifactname,-13,-8)];
+			$ar['Arch'] = '34 Bit';
+		}
 		return $ar;
 	}
 	
@@ -54,6 +80,7 @@
 				}
 			}
 		}
+		$aDirectory->close();
 		return $artifacts;
 	}
 	
@@ -67,8 +94,15 @@
 				}
 			}
 		}
+		$aDirectory->close();
 		return $array;
 	}
+	
+	function human_filesize($bytes, $decimals = 2) {
+	  $sz = 'BKMGTP';
+	  $factor = floor((strlen($bytes) - 1) / 3);
+	  return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
+	}	
 	
 	function printArtifacts($folder) {
 		
@@ -84,6 +118,7 @@
 			
 			$version = key($elements);
 			$str .= "<h4>".$version."<h4>\n";
+			$str .= "<hr>\n";
 	
 			//Categories
 			while($categories = current($versions)) {
@@ -107,7 +142,7 @@
 						$str .= "<ul id='".$afolder."' style='display:".$show."'\>\n";
 						//Artifacts
 						while($artifact = current($afolders)) {
-							$str .= "<li><a href='http://www.eclipse.org/downloads/download.php?file=/rmf/downloads/drops/".$version."/".$afolder."/".$artifact."'><img src='http://www.eclipse.org/modeling/images/dl.gif' style='border:0;' />".$artifact."</a></li>\n";
+							$str .= "<li><a href='http://www.eclipse.org/downloads/download.php?file=/rmf/downloads/drops/".$version."/".$afolder."/".$artifact['Name']."'><img src='http://www.eclipse.org/modeling/images/dl.gif' style='border:0;' /> ".$artifact['OS']." ".$artifact['Arch']." (".human_filesize($artifact['Size']).")</a></li>\n";
 							next($afolders);
 						}
 						$str .= "</ul>\n";
