@@ -144,7 +144,7 @@
 						$afolder = key($categories);
 						usort($afolders, "cmp");
 						$str .= "<li><a href=\"javascript:toggle('".$afolder."')\">".$afolder." (".IDtoDateStamp($afolder, 0).")</a>\n";
-						$str .= "<ul id='".$afolder."' style='display:".$show."'\>\n";
+						$str .= "<ul id='".$afolder."' style='list-style:none;display:".$show."'\>\n";
 						//Artifacts
 						while($artifact = current($afolders)) {
 							$str .= "<li><a href='http://www.eclipse.org/downloads/download.php?file=/rmf/downloads/drops/".$version."/".$afolder."/".$artifact['Name']."'><img src='http://www.eclipse.org/modeling/images/dl.gif' style='border:0;' /> ".$artifact['OS']." ".$artifact['Arch']." (".human_filesize($artifact['Size']).")</a></li>\n";
