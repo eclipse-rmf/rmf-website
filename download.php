@@ -103,6 +103,11 @@
 	  return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
 	}	
 	
+	function cmp($a, $b)
+	{
+	    return strcmp($a["OS"], $b["OS"]);
+	}
+	
 	function printArtifacts($folder) {
 		
 		$elements = getVersions($folder);
@@ -137,6 +142,7 @@
 					//Artifactsfolder
 					while($afolders = current($categories)) {
 						$afolder = key($categories);
+						usort($afolders, "cmp");
 						$str .= "<li><a href=\"javascript:toggle('".$afolder."')\">".$afolder." (".IDtoDateStamp($afolder, 0).")</a>\n";
 						$str .= "<ul id='".$afolder."' style='display:".$show."'\>\n";
 						//Artifacts
