@@ -19,7 +19,6 @@
 	$pageKeywords	= "eclipse, project";
 	$pageAuthor		= "Lukas Ladenberger";
 	$pageTitle 		= "Requirements Modeling Framework - RMF";
-	
 
 	function getArtifacts($folder) {
 		$ar = array();
@@ -56,7 +55,7 @@
 			$ar['Arch'] = '64 Bit';
 		} else {
 			$ar['OS'] = $osarray[substr($artifactname,-13,-8)];
-			$ar['Arch'] = '34 Bit';
+			$ar['Arch'] = '32 Bit';
 		}
 		return $ar;
 	}
