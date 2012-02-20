@@ -1,34 +1,30 @@
-<h3>RMF - Requirements Modeling Framework</h3>
+<h3>A Tool for working with Requirements</h3>
 <div id="introText">
 
 <p class="left">
-The vision is to have at least one clean-room implementation of the
-<a href="http://www.omg.org/spec/ReqIF/">OMG ReqIF</a> standard in form of an EMF model
-and some rudimentary tooling to edit these models. The idea is to implement the standard
-so that it is compatible with Eclipse technologies like GMF, Xpand, Acceleo, Sphinx, 
-etc. and other key technologies like CDO.
+ProR is a tool for requirements engineering that supports the ReqIF 1.0.1 Standard natively.
+It is part of the Eclipse RMF project and is built for extensibility.
+ProR is the result of the <a href="http://www.deploy-project.eu/">European Union FP7 Research Project Deploy</a>,
+where it is used to provide traceability between requirements and formal models.
+</p>
 
-<br/><br/>
-
-<b>ReqIf Core</b> - The first initial contribution will come from <a href="http://www.itemis.com">itemis</a>
-and will include our implementation of the ReqIF and RIF metamodels as .ecore models,
-including special (de)serializers that map the EMF-models to a ReqIF conforming standard.
-The model and (de)serializers are already available at itemis and need only be provided.
+<p class="left">
+<b>Vision:</b> Our vision is to provide a tool that supports interoperability by operating
+directly of the ReqIF data standard, and that supports integration by taking advantage
+of the extendability of the Eclipse platform.  ProR is targeted to academic and industrial users alike.
 </p>
 
 <p class="right">
-<b>ProR GUI</b> - The second contribution will come from <a href="http://formalmind.com">Formal Mind</a> and the <a href="http://www.stups.uni-duesseldorf.de/">University
-of Düsseldorf</a> and will include a <a href="http://pror.org">front end that facilitates
-working with ReqIF data (ProR)</a>.  While ReqIF data could also be edited with the default
-EMF editor, this is not even remotely practical: a tree view of the requirements, with the 
-details shown in the property view, doesn't allow users to efficiently navigate requirements 
-or get an overview of what's there.
+<b>Background</b>
+<p class="right">
+	Requirements engineering is a discipline of systems development.  A system can be anything, big or small: A new software, a plane, a telecommunications network - you name it.  We are especially concerned about distributed development: How do you make sure the pieces fit together?  How do you ensure that system does what you think it does?</p>
+<p class="right">
 
-<br/><br/>
-
-This project was just provisioned.  You can see the proposal 
-<a href="/proposals/modeling.mdt.rmf">here</a>
-</p>
+	In practice, these issues are usually addressed by writing down requirements.  Once written down, stakeholders can agree on them.  An implementation should fulfill requirements, and ideally you can tell which requirements are fulfilled by which part of your implementation.</p>
+<p class="right">
+	This process creates a huge amount of information that must be managed.  ProR is a tool for this purpose.  You should consider using ProR when Word or Excel are not powerful enough any more to handle your requirements.  ProR allows you to set attributes on requirements.  For instance, you can create a status attribute ("not implemented", "in work" "implemented"), or a text field for the owner.  You can also create links between requirements.  This would allow you to manage one document with the requirements and another describing tests.  The link shows which test covers which requirement.</p>
+<p class="right">
+	ProR supports the RIF standard, a data exchange format for requirements.  This allows you to exchange requirements with other tools, like Rational DOORS.  ProR strives to be a powerful RE tool that fills the niche between "low-tech" solutions like MS Office and expensive commercial solutions like Rational DOORS or IrQA.</p>
 
 </div>
 
