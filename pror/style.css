@@ -126,23 +126,24 @@ a strong {
    
 #buttonDocumentation {
    background:transparent url("images/buttonDocumentation.png") no-repeat 0 0;
+   top: 0px;
+   left: 280px;
+}
+
+#buttonSupport {
+   background:transparent url("images/buttonSupport.png") no-repeat 0 0;
    top: 87px;
    left: 0px;
+}
+
+#buttonSupport:hover {
+   background:transparent url("images/buttonSupport_sel.png") no-repeat 0 0;
 }
 
 #buttonDocumentation:hover {
    background:transparent url("images/buttonDocumentation_sel.png") no-repeat 0 0;
 }
 
-#buttonSupport {
-   background:transparent url("images/buttonSupport.png") no-repeat 0 0;
-   top: 0px;
-   left: 280px;
-}
-
-#buttonSupport:hover {
-   background:transparent url("images/buttonSupport_sel.png") no-repeat 0 0;
-}
 
 #buttonInvolved {
    background:transparent url("images/buttonInvolved.png") no-repeat 0 0;
