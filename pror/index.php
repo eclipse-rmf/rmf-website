@@ -15,7 +15,7 @@
 	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php");
 	
 	$App 	= new App();	
-#	$Nav	= new Nav();	
+	$Nav	= new Nav();	
 	$Menu 	= new Menu();		
 	include($App->getProjectCommon());
 	
