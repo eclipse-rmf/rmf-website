@@ -116,6 +116,8 @@
 		
 		//Sort verion numbers
 		krsort($elements);
+
+		$show = '';
 		
 		//Versionnumbers
 		while($versions = current($elements)) {
@@ -123,8 +125,6 @@
 			$version = key($elements);
 			$str .= "<h4>".$version."<h4>\n";
 			$str .= "<hr>\n";
-
-			$show = '';
 
 			//Categories
 			while($categories = current($versions)) {
