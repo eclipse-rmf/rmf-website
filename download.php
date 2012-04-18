@@ -7,7 +7,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *    
+ *    Lukas Ladenberger
  *******************************************************************************/
 
 	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); 	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); 	$App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProjectCommon());
@@ -123,7 +123,9 @@
 			$version = key($elements);
 			$str .= "<h4>".$version."<h4>\n";
 			$str .= "<hr>\n";
-	
+
+			$show = '';
+
 			//Categories
 			while($categories = current($versions)) {
 	
@@ -137,8 +139,6 @@
 				
 				$str .= "<ul>\n";
 					$show = 'none';
-					if($category == 'Snapshot')
-						$show = '';
 					//Artifactsfolder
 					while($afolders = current($categories)) {
 						$afolder = key($categories);
