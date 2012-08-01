@@ -133,9 +133,9 @@
 				$category = key($versions);
 				$str .= "<h5>".$category."<h5>\n";
 		
-				$str .= "<ul>\n";
-				$str .= "<li>Updatesite: <i>http://download.eclipse.org/rmf/updates/".strtolower($category)."/".$version."</i></li>\n";
-				$str .= "</ul>\n";
+				//$str .= "<ul>\n";
+				//$str .= "<li>Updatesite: <i>http://download.eclipse.org/rmf/updates/".strtolower($category)."/".$version."</i></li>\n";
+				//$str .= "</ul>\n";
 				
 				$str .= "<ul>\n";
 
@@ -171,6 +171,11 @@
 	$html = file_get_contents('pages/_header.html');
 	
 	$folder = $App->getDownloadBasePath()."/rmf/downloads/drops";
+
+	$html .= "<h4>Software Repository</h4>";
+	$html .= "<p>This project maintains a p2 repository of binary artifacts. Copy and paste this link into the "Install New Software" dialog to install this project's software.</p>";
+	$html .= "<i>http://download.eclipse.org/rmf/updates</i>";
+	$html .= "<p>Note that the repository link will not necessarily display anything meaningful in your browser.</p>";
 
 	$html .= printArtifacts($folder);
 
