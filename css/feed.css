@@ -1,0 +1,22 @@
+/* begin styles for RSS Feed */
+
+.rss-box { background: url('../images/noise.png') #293361; font-family: "verdana, arial, sans-serif"; }
+
+.rss-title, rss_title a {
+	font-size: 500%;
+	font-weight: bolder;
+	color: #fff;
+        margin: 0px 0;
+	padding: 0;
+	letter-spacing: 1px; }
+
+.rss-items, ul.rss-items { list-style-type: none; }
+
+.rss-item { color: #bbb; font-size: 75%; font-family: Tahoma; font-weight: normal; margin: 8px 0 }
+
+.rss-item a:link, .rss-item a:visited { color: #fff; font-size: 110%; text-decoration: none }
+
+.rss-item a:hover { color: gray; text-decoration: underline }
+
+.rss-date { color: gray; font-size: 80%; font-weight: normal } 
+/* buttons modeled from http://www.wellstyled.com/css-inline-buttons.html */
