@@ -23,8 +23,8 @@ $(this).css('background-color','#ffffff');
 	$('.navbar').scrollspy();
     
     // Scroll page with easing effect
-    $('.navbar ul li a').bind('click', function(e) {
-        e.preventDefault();
+    $('.clickscroll').bind('click', function(e) {
+	e.preventDefault();
         target = this.hash;
         $.scrollTo(target, 1500, {
         	easing: 'easeOutCubic'
@@ -60,7 +60,7 @@ $(this).css('background-color','#ffffff');
 	$(".brand, .go-top").click(function(event){
 		event.preventDefault();
 
-		$.scrollTo('#carouselSection', 1500, {
+		$.scrollTo('#introSection', 1500, {
         	easing: 'easeOutCubic'
         });
 	});
