@@ -271,19 +271,6 @@ To get started as a user, you can
 </div>
 <!-- Get Started======================================== -->
 
-<!-- Downloads ======================================== -->
-<div id="downloadSection">
-<h1 class="cntr">Downloads</h1>
-<div class="container">
-
-</div>
-
-
-
-</div>
-<!-- Download ======================================== -->
-
-
 </div>
 <div id="portfolioSection">
 <h1 class="cntr">News</h1>
@@ -299,6 +286,15 @@ To get started as a user, you can
 
 </div>
 </div>
+
+<!-- Downloads ======================================== -->
+<div id="downloadSection">
+<h1 class="cntr">Downloads</h1>
+<div class="container">
+</div>
+</div>
+<!-- Download ======================================== -->
+
 
 <div id="footerSection">
 	<div class="container">
