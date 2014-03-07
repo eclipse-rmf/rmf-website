@@ -182,6 +182,7 @@
 	$html .= "<h4>Releases (Will be published soon)</h4><p><i>http://download.eclipse.org/rmf/updates/releases</i></p>\n";
 	$html .= "<p>Note that the repository link will not necessarily display anything meaningful in your browser.</p>\n";
 
+	$html .= "<h3>Standalone Snapshots</h3>\n";
 	$html .= printArtifacts($folder);
 
 	// # Footer
