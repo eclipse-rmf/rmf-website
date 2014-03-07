@@ -289,8 +289,18 @@ To get started as a user, you can
 
 <!-- Downloads ======================================== -->
 <div id="downloadSection">
-<h1 class="cntr">Downloads</h1>
+<h1 class="cntr" style="margin-top:25px">Downloads</h1>
 <div class="container">
+
+<?php
+
+
+	include('download.functions.php');
+	$folder = $App->getDownloadBasePath()."/rmf/downloads/drops";
+	printArtifacts($folder);
+	
+?>
+
 </div>
 </div>
 <!-- Download ======================================== -->

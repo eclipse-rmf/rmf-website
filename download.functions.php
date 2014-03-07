@@ -1,0 +1,155 @@
+<?php
+
+require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");
+$App = new App(); 
+include($App->getProjectCommon());
+require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/downloads-scripts.php");
+
+function getArtifacts($folder) {
+		$ar = array();
+		$aDirectory = dir($folder);
+		while ($file = $aDirectory->read()) {
+			if($file != "." && $file != "..") {
+				$po = $folder."/".$file;
+				if(!is_dir($po)) {
+					$osar = getOsArtifact($file);
+					$ar[] = array(
+						'Name' => $file,					
+						'Size' => filesize($po),
+						'OS' => $osar['OS'],
+						'Arch' => $osar['Arch']
+						);
+				}
+			}
+		}	
+		$aDirectory->close();
+		return $ar;
+	}
+	
+	function getOsArtifact($artifactname) {
+		$ar = array();
+		$osarray = array(
+			'x.gtk' => 'Linux',
+			'win32' => 'Windows',
+			'cocoa' => 'Mac OS X (Cocoa)'
+		);
+		$str = '';
+		$arch = substr($artifactname,-10,-4);
+		if($arch == 'x86_64') {
+			$ar['OS'] = $osarray[substr($artifactname,-16,-11)];
+			$ar['Arch'] = '64 Bit';
+		} else {
+			$ar['OS'] = $osarray[substr($artifactname,-13,-8)];
+			$ar['Arch'] = '32 Bit';
+		}
+		return $ar;
+	}
+	
+	function getArtifactsFolder($folder)
+	{
+		$artifacts = array('Snapshot' => array(), 'Nightly' => array(), 'Integration' => array());
+		$aDirectory = dir($folder);
+		while ($file = $aDirectory->read()) {
+			if($file != "." && $file != "..") {
+				$po = $folder."/".$file;
+				if(is_dir($po)) {
+					$prefix = substr($file, 0, 1);
+					if($prefix == 'S') {
+						$artifacts['Snapshot'][$file] = getArtifacts($po);
+					} elseif($prefix == 'N'){
+						$artifacts['Nightly'][$file] = getArtifacts($po);
+					} elseif($prefix == 'I') {
+						$artifacts['Integration'][$file] = getArtifacts($po);
+					}
+				}
+			}
+		}
+		$aDirectory->close();
+		return $artifacts;
+	}
+	
+	function getVersions($folder) {
+		$array = array();
+		$aDirectory = dir($folder);
+			while ($file = $aDirectory->read()) {
+			if($file != "." && $file != "..") {
+				if(is_dir($folder."/".$file)) {
+					$array[$file] = getArtifactsFolder($folder."/".$file);
+				}
+			}
+		}
+		$aDirectory->close();
+		return $array;
+	}
+	
+	function human_filesize($bytes, $decimals = 2) {
+	  $sz = 'BKMGTP';
+	  $factor = floor((strlen($bytes) - 1) / 3);
+	  return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
+	}	
+	
+	function cmp($a, $b)
+	{
+	    return strcmp($a["OS"], $b["OS"]);
+	}
+	
+		function printArtifacts($folder) {
+		
+		$elements = getVersions($folder);
+		
+		$str = '';
+		
+		//Sort verion numbers
+		krsort($elements);
+
+		$show = '';
+		
+		//Versionnumbers
+		while($versions = current($elements)) {
+			
+			$version = key($elements);
+			$str .= "<h4>".$version."<h4>\n";
+			$str .= "<hr>\n";
+
+			//Categories
+			while($categories = current($versions)) {
+	
+				krsort($categories);
+				$category = key($versions);
+				$str .= "<h5>".$category."<h5>\n";
+		
+				//$str .= "<ul>\n";
+				//$str .= "<li>Updatesite: <i>http://download.eclipse.org/rmf/updates/".strtolower($category)."/".$version."</i></li>\n";
+				//$str .= "</ul>\n";
+				
+				$str .= "<ul>\n";
+
+				//Artifactsfolder
+				while($afolders = current($categories)) {
+					$afolder = key($categories);
+					usort($afolders, "cmp");
+					$str .= "<li><a href=\"javascript:toggle('".$afolder."')\">".$afolder." (".IDtoDateStamp($afolder, 0).")</a>\n";
+					$str .= "<ul id='".$afolder."' style='list-style:none;display:".$show."'\>\n";
+					//Artifacts
+					while($artifact = current($afolders)) {
+						$str .= "<li><a href='http://www.eclipse.org/downloads/download.php?file=/rmf/downloads/drops/".$version."/".$afolder."/".$artifact['Name']."'><img src='http://www.eclipse.org/modeling/images/dl.gif' style='border:0;' /> ".$artifact['OS']." ".$artifact['Arch']." (".human_filesize($artifact['Size']).")</a></li>\n";
+						next($afolders);
+					}
+					$str .= "</ul>\n";
+					$str .= "</li>\n";
+					$show = 'none';
+					next($categories);
+				}
+					
+				$str .= "</ul>\n";
+	
+				next($versions);
+			}
+			
+			next($elements);
+			
+		}
+		return $str;
+	}
+
+?> 
