@@ -296,8 +296,8 @@ To get started as a user, you can
 
 
 	include('download.functions.php');
-	$folder = $App->getDownloadBasePath()."/rmf/downloads/drops";
-	printArtifacts($folder);
+	//$folder = $App->getDownloadBasePath()."/rmf/downloads/drops";
+	//printArtifacts($folder);
 	
 ?>
 
