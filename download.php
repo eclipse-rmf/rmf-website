@@ -174,7 +174,11 @@
 
 	$html .= "<h4>Software Repository</h4>\n";
 	$html .= "<p>This project maintains a p2 repository of binary artifacts. Copy and paste this link into the \"Install New Software\" dialog to install this project's software.</p>\n";
-	$html .= "<p><i>http://download.eclipse.org/rmf/updates</i></p>\n";
+	
+	$html .= "<h5>Snapshots (Will be deprecated soon)</h5><p><i>http://download.eclipse.org/rmf/updates/snapshot</i></p>\n";
+	$html .= "<h5>Snapshots (Contains the latest build)</h5><p><i>http://download.eclipse.org/rmf/updates/latest</i></p>\n";
+	$html .= "<h5>Snapshots (Will be published soon)</h5><p><i>http://download.eclipse.org/rmf/updates/releases</i></p>\n";
+	$html .= "<h5>Snapshots (Will be published soon)</h5><p><i>http://download.eclipse.org/rmf/updates/milestones</i></p>\n";
 	$html .= "<p>Note that the repository link will not necessarily display anything meaningful in your browser.</p>\n";
 
 	$html .= printArtifacts($folder);
