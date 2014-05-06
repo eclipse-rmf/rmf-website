@@ -182,8 +182,8 @@
 	$html .= "<h4>Releases (Will be published soon)</h4><p><i>http://download.eclipse.org/rmf/updates/releases</i></p>\n";
 	$html .= "<p>Note that the repository link will not necessarily display anything meaningful in your browser.</p>\n";
 	$html .= "<h3>Third-Party Distributions</h3>\n";
-	$html .= "<a href='http://www.formalmind.com/studio' target='_blank'><img src='http://www.formalmind.com/sites/files/studio-download.png' align='right'></a>\n";
-	$html .= "Formal Mind offers a distribution called <a href='http://www.formalmind.com/studio' target='_blank'>formalmind Studio</a>.  This distribution consists of the latest ProR (at times more up to date than the downloads offered here), enhanced with the free Essentials, a suite of productivity enhancements.  Essentials include Rich Text rendering and editing, suspect link management, and more.\n";
+	$html .= "<p><a href='http://www.formalmind.com/studio' target='_blank'><img src='http://www.formalmind.com/sites/files/studio-download.png' align='right'></a>\n";
+	$html .= "Formal Mind offers a distribution called <a href='http://www.formalmind.com/studio' target='_blank'>formalmind Studio</a>.  This distribution consists of the latest ProR (at times more up to date than the downloads offered here), enhanced with the free Essentials, a suite of productivity enhancements.  Essentials include Rich Text rendering and editing, suspect link management, and more.</p>\n";
 
 	$html .= "<h3>Standalone Snapshots</h3>\n";
 	$html .= printArtifacts($folder);
