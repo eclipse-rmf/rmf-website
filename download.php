@@ -175,11 +175,11 @@
 	$html .= "<h3>Software Repository</h3>\n";
 	$html .= "<p>This project maintains a p2 repository of binary artifacts. Copy and paste this link into the \"Install New Software\" dialog to install this project's software.</p>\n";
 	
-	$html .= "<h4>Snapshots (Will be deprecated soon)</h4><p><i>http://download.eclipse.org/rmf/updates/snapshot</i></p>\n";
+	$html .= "<h4>Snapshots (Deprecated)</h4><p><i>http://download.eclipse.org/rmf/updates/snapshot</i></p>\n";
 	$html .= "<h4>Latest Build</h4><p><i>http://download.eclipse.org/rmf/updates/latest</i></p>\n";
-	$html .= "<h4>Milestones (Will be published soon)</h4><p><i>http://download.eclipse.org/rmf/updates/milestones</i></p>\n";
+	$html .= "<h4>Milestones</h4><p><i>http://download.eclipse.org/rmf/updates/milestones</i></p>\n";
 	
-	$html .= "<h4>Releases (Will be published soon)</h4><p><i>http://download.eclipse.org/rmf/updates/releases</i></p>\n";
+	$html .= "<h4>Releases</h4><p><i>http://download.eclipse.org/rmf/updates/releases</i></p>\n";
 	$html .= "<p>Note that the repository link will not necessarily display anything meaningful in your browser.</p>\n";
 	$html .= "<h3>Third-Party Distributions</h3>\n";
 	$html .= "<p><a href='http://www.formalmind.com/studio' target='_blank'><img src='http://www.formalmind.com/sites/files/studio-download.png' align='right'></a>\n";
