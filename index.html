@@ -136,9 +136,15 @@ Imbeded font from Google -->
 
 <p>RMF is a framework for working with textual requirements, structured as ReqIF models, the industry standard for exchanging requirements. RMF uses natively ReqIF, the open standard for requirements exchange, allowing you to exchange requirements with many industry applications like Rational DOORS® or PTC integrity®.</p>
 
+<img src="images/reqif-exchange.png" />
+
 <h2>What is ProR?</h2>
 
 <p>ProR is the GUI that allows comfortable working with Requirements. It opens ReqIF files with a click, allowing you to immediately inspect and edit files. Powerful extensions exist for dealing with rich text, ReqIFz-Archives, and much more.</p>
+
+<img src="images/eclipse-integration.png" />
+
+<p>ProR is designed explicitly for integration and extendability.  An Extension Point exists that allows tools to integrate their own renderer or even editor.  Some integrations are publicly available, including a <a href="http://formalmind.com/en/blog/traceability-between-uml-and-requirements-pror" target="_blank">UML/SysML integration</a> and an <a href="http://www.formalmind.com/en/blog/integrating-requirements-and-models"  target="_blank">integration with the formal modeling tool Rodin</a>.</p>
 
 	</div>
 </div>
@@ -152,11 +158,11 @@ Imbeded font from Google -->
 			<div class="thumbnail">
 			<img src="images/thumb-pror.png" />
 			  <h4>Start right away with ProR</h4>			  
-				<p>If you are just looking for a Requirements or ReqIF-Editor, just download <a href="http://eclipse.org/rmf/download.php">ProR</a>
-				and start being productive.  You can directly open .reqif files or create your own
-				requirements document, as described in the <a href="https://wiki.eclipse.org/RMF/User_Guide/Tutorial">Tutorial</a>.
-				  RMF and ProR use ReqIF as the underlying data model,
-					thereby providing compatibility with many industry tools.
+				<p>If you are just looking for a Requirements or ReqIF-Editor, just download 
+				<a href="http://formalmind.com/studio" target="_blank">formalmind Studio</a> and start being productive.  
+				Formal Mind Studio is a third-party, stand-alone build of ProR with enhancements.  
+				Alternatively, you can install ProR into any Eclipse-Installation (3.6 and later) by using the update site URL
+				provided on the <a href="download.php">Download Page</a>.
 				</p>
 			</div>
 			
@@ -217,7 +223,8 @@ Imbeded font from Google -->
 					is available for free and allows, amongst other things, the correct
 					rendering and editing of rich text (xhtml), handling of ReqIF archives (.reqifz)
 					and more.  Note that these are third-party extensions that are
-					not part of Eclipse.
+					not part of Eclipse.  The third-party <a href="http://formalmind.com/studio" target="_blank">formalmind Studio</a> 
+                                        already comes with Essentials installed.
 				</p>
 			</div>
 		<br>
@@ -237,29 +244,29 @@ Imbeded font from Google -->
 
 <h3>As a User</h3>
 
-To get started as a user, you can
+
+
+<p>To get started as a user, the following resources will be useful:</p>
 
 <ul>
-  <li><b>Get Started</b> - Check out the <a href="https://wiki.eclipse.org/Category:RMF/User_Guide">User Gude</a>.</li>
-  <li><b>ProR Tutorial</b> - In particular, you may be interested in the <a href="https://wiki.eclipse.org/RMF/User_Guide/Tutorial">Tutorial</a>.</li>
-  <li><b>Ask the Forum</b> - The <a href="http://www.eclipse.org/forums/index.php?t=thread&frm_id=230">user forum</a> is a good place for asking questions.
-  <li><b>File a Bug</b> - You can <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?assigned_to=&blocked=&bug_file_loc=http%3A%2F%2F&bug_severity=normal&bug_status=NEW&comment=&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text%2Fplain&data=&dependson=&description=&flag_type-1=X&flag_type-11=X&flag_type-12=X&flag_type-2=X&flag_type-4=X&flag_type-6=X&flag_type-7=X&flag_type-8=X&form_name=enter_bug&keywords=&maketemplate=Remember%20values%20as%20bookmarkable%20template&op_sys=All&product=MDT.RMF&qa_contact=&rep_platform=All&short_desc=&version=unspecified">submit a Bugzilla entry</a>.  Note that you nave to create an account to file bugs.</li>
+  <li><a href="http://formalmind.com/studio" target="_blank"><b>Download formalmind Studio</b> - The fastest way to get started is to download formalmind Studio, which is a third-party distribution that extends ProR with useful enhancements.  Alternatively, you can use the binaries on the download page.</a></li>
+  <li><a href="http://download.eclipse.org/rmf/documentation/rmf-latex/main.html"><b>ProR Handbook</b> - The ProR User Documentation (including Tutorial)</a></li>
+  <li><a href="http://www.eclipse.org/forums/index.php?t=thread&frm_id=230"><b>RMF and ProR User Forum</b> - Ask Questions and get Answers</a></li>
+  <li><a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?assigned_to=&blocked=&bug_file_loc=http%3A%2F%2F&bug_severity=normal&bug_status=NEW&comment=&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text%2Fplain&data=&dependson=&description=&flag_type-1=X&flag_type-11=X&flag_type-12=X&flag_type-2=X&flag_type-4=X&flag_type-6=X&flag_type-7=X&flag_type-8=X&form_name=enter_bug&keywords=&maketemplate=Remember%20values%20as%20bookmarkable%20template&op_sys=All&product=MDT.RMF&qa_contact=&rep_platform=All&short_desc=&version=unspecified"><b>File a Bug</b> - Think you found a problem?  You have a feature request? Then file an issue in Bugzilla.  You need an account to file bugs.</a></li>
 
 </ul>
 </div>
 
 <div class="span5">
 
-<h3>Key Resources</h3>
+<h3>As a Developer</h3>
 
 <p>The following collection of links will hopefully help you find quickly what you are looking for.</p>
 
 <ul>
-  <li><b>Contribute</b> - There are many ways for helping, we created a <a href="https://wiki.eclipse.org/Category:RMF/Contributor_Guide">Contributor Guide</a> for this purpose.</li>
-  
-  <li><b>Project Metadata</b> - Various statistics about the project can be found on the <a href="http://www.eclipse.org/projects/project.php?id=modeling.mdt.rmf">Eclipse RMF Project Page</a>.
-  
-  <li><b>Extend ProR</b> - To extend the functionality of ProR, you can <a href="https://wiki.eclipse.org/RMF/Contributor_Guide/Presentations">create so-called presentations</a>, which are plug-ins that provide custom renderers and other extensions.</li>
+  <li><a href="https://wiki.eclipse.org/Category:RMF/Contributor_Guide"><b>Contributor Guide</b> - This Wiki page contains everything to get started.</a></li>
+  <li><a href="https://projects.eclipse.org/projects/modeling.mdt.rmf"><b>Project Page</b> - Contains Statistics, Repositry links, Committer Information, etc.</a></li>
+  <li><a href="https://wiki.eclipse.org/RMF/Contributor_Guide/Presentations"><b>Extend ProR</b> - To extend the functionality of ProR, you can create so-called presentations. which are plug-ins that provide custom renderers and other extensions.</a></li>
 </ul>
 
 </div>
