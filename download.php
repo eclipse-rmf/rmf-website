@@ -178,16 +178,16 @@
 	$html .= "<h4>Releases</h4><p><i>http://download.eclipse.org/rmf/updates/releases</i></p>\n";
 	$html .= "<h4>Milestones</h4><p><i>http://download.eclipse.org/rmf/updates/milestones</i></p>\n";
 	$html .= "<h4>Latest Build</h4><p><i>http://download.eclipse.org/rmf/updates/latest</i></p>\n";
-	$html .= "<h4>Snapshots (Deprecated)</h4><p><i>http://download.eclipse.org/rmf/updates/snapshot</i></p>\n";
+	//$html .= "<h4>Snapshots (Deprecated)</h4><p><i>http://download.eclipse.org/rmf/updates/snapshot</i></p>\n";
 
 	$html .= "<p>Note that the repository link will not necessarily display anything meaningful in your browser.</p>\n";
 	$html .= "<h3>Third-Party Distributions</h3>\n";
 	$html .= "<p><a href='http://www.formalmind.com/studio' target='_blank'><img src='http://www.formalmind.com/sites/files/studio-download.png' align='right'></a>\n";
 	$html .= "Formal Mind offers a distribution called <a href='http://www.formalmind.com/studio' target='_blank'>formalmind Studio</a>.  This distribution consists of the latest ProR (at times more up to date than the downloads offered here), enhanced with the free Essentials, a suite of productivity enhancements.  Essentials include Rich Text rendering and editing, suspect link management, and more.</p>\n";
 
-	$html .= "<h3>Standalone Snapshots</h3>\n";
-	$html .= "<strong>Standalone versions are not longer maintained by the RMF project. However, there is still a standalone version at the <a href='http://www.formalmind.com/studio' target='_blank'>formalmind webseite available</a>.</strong>\n";
-	$html .= printArtifacts($folder);
+	//$html .= "<h3>Standalone Snapshots</h3>\n";
+	//$html .= "<strong>Standalone versions are not longer maintained by the RMF project. However, there is still a standalone version at the <a href='http://www.formalmind.com/studio' target='_blank'>formalmind webseite available</a>.</strong>\n";
+	//$html .= printArtifacts($folder);
 
 	// # Footer
 	$html .= file_get_contents('pages/_footer.html');
